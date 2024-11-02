@@ -1,0 +1,73 @@
+version: "3"
+x-airflow-common: &airflow-common
+  build:
+    context: .
+    dockerfile: Dockerfile
+  env_file:
+    - airflow.env
+  volumes:
+    - .:/opt/airflow/Football
+    - ./dags:/opt/airflow/dags
+    - ./logs:/opt/airflow/logs
+  user: "${AIRFLOW_UID:-50000}:0"
+  depends_on:
+    - postgres
+  networks:
+    - soccer-net
+
+services:
+  postgres:
+    image: postgres:14.0
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      - postgres-db-volume:/var/lib/postgresql/data
+    networks:
+      - soccer-net
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+
+  airflow-webserver:
+    <<: *airflow-common
+    command: webserver
+    ports:
+      - "8080:8080"
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
+    restart: always
+    depends_on:
+      - airflow-init
+
+  airflow-scheduler:
+    <<: *airflow-common
+    command: scheduler
+    depends_on:
+      - airflow-init
+
+  airflow-init:
+    <<: *airflow-common
+    command: bash -c "airflow db migrate && airflow users create \
+      --username $${AIRFLOW_ADMIN_USERNAME} \
+      --firstname $${AIRFLOW_ADMIN_FIRSTNAME} \
+      --lastname $${AIRFLOW_ADMIN_LASTNAME} \
+      --role $${AIRFLOW_ADMIN_ROLE} \
+      --email $${AIRFLOW_ADMIN_EMAIL} \
+      --password $${AIRFLOW_ADMIN_PASSWORD}"
+    depends_on:
+      - postgres
+
+volumes:
+  postgres-db-volume:
+
+networks:
+  soccer-net:
