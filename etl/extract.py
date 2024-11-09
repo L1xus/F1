@@ -21,18 +21,26 @@ def extract_data():
     session_keys = get_last_season_races()
     drivers_numbers = get_drivers()
     
+    all_cars = {}
     all_laps = {}
     all_pits = {}
     all_positions = {}
     all_stints = {}
 
     for session in session_keys:
+        all_cars[session] = {}
         all_laps[session] = {}
         all_pits[session] = {}
         all_positions[session] = {}
         all_stints[session] = {}
         
         for driver in drivers_numbers:
+            # Fetch and store cars data
+            cars_url = f"https://api.openf1.org/v1/car_data?session_key={session}&driver_number={driver}"
+            cars_data = fetch_data(cars_url)
+            if cars_data:
+                all_cars[session][driver] = cars_data
+
             # Fetch and store laps data
             laps_url = f"https://api.openf1.org/v1/laps?session_key={session}&driver_number={driver}"
             laps_data = fetch_data(laps_url)
@@ -58,6 +66,7 @@ def extract_data():
                 all_stints[session][driver] = stints_data
 
     # Save data to JSON files
+    save_to_json("cars.json", all_cars)
     save_to_json("laps.json", all_laps)
     save_to_json("pits.json", all_pits)
     save_to_json("positions.json", all_positions)
