@@ -1,0 +1,32 @@
+[
+    {
+        "date": "2023-09-15T09:38:23.038000+00:00",
+        "driver_number": 63,
+        "lap_number": 5,
+        "meeting_key": 1219,
+        "pit_duration": 24.5,
+        "session_key": 9158,
+        "full_name": "George RUSSELL",
+        "team_name": "Mercedes"
+    },
+    {
+        "date": "2023-09-15T09:38:23.038000+00:00",
+        "driver_number": 63,
+        "lap_number": 5,
+        "meeting_key": 1219,
+        "pit_duration": 20.5,
+        "session_key": 9158,
+        "full_name": "George RUSSELL",
+        "team_name": "Mercedes"
+    },
+    {
+        "date": "2023-09-15T10:05:01.229000+00:00",
+        "driver_number": 81,
+        "lap_number": 13,
+        "meeting_key": 1219,
+        "pit_duration": 30.8,
+        "session_key": 9158,
+        "full_name": "Oscar PIASTRI",
+        "team_name": "McLaren"
+    }
+]

@@ -1,0 +1,20 @@
+[
+    {
+        "driver_number": 63,
+        "full_name": "George RUSSELL",
+        "team_name": "Mercedes",
+        "i1_speed": 307,
+        "i2_speed": 277,
+        "avg_speed": 292.0,
+        "st_speed": 298
+    },
+    {
+        "driver_number": 77,
+        "full_name": "Valtteri BOTTAS",
+        "team_name": "Kick Sauber",
+        "i1_speed": 307,
+        "i2_speed": 277,
+        "avg_speed": 292.0,
+        "st_speed": 298
+    }
+]
