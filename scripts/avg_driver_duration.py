@@ -1,6 +1,6 @@
 import json
 
-def duration():
+def avg_driver_duration():
     # Exemple de données JSON
     with open('data/laps.json', 'r') as pos_file:
         data = json.load(pos_file)

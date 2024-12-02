@@ -1,10 +1,8 @@
 import json
 
-def avg_tyre_age():
-    # Exemple de données JSON
-    with open('data/stints.json', 'r') as pos_file:
+def avg_driver_pit():
+    with open('data/pits.json', 'r') as pos_file:
         data = json.load(pos_file)
-
 
     # Dictionnaire pour stocker les données agrégées
     driver_durations = {}
@@ -15,21 +13,22 @@ def avg_tyre_age():
             # Initialiser les listes pour chaque conducteur si elles n'existent pas encore
             if driver_number not in driver_durations:
                 driver_durations[driver_number] = {
-                    "tyre_age_at_start": []
+                    "pit_duration": []
                 }
             
             # Ajouter les durées des secteurs et des tours
             for lap in laps:
-                if "tyre_age_at_start" in lap and lap["tyre_age_at_start"] is not None:
-                    driver_durations[driver_number]["tyre_age_at_start"].append(lap["tyre_age_at_start"])
+                if "pit_duration" in lap and lap["pit_duration"] is not None:
+                    driver_durations[driver_number]["pit_duration"].append(lap["pit_duration"])
 
 
     # Calculer les moyennes pour chaque conducteur
-    driver_tyre_age_avg = {
+    driver_duration_pit_avg = {
         driver: {
-            "tyre_age": sum(durations["tyre_age_at_start"]) / len(durations["tyre_age_at_start"]) if durations["tyre_age_at_start"] else 0
+            "average_pit_duration": sum(durations["pit_duration"]) / len(durations["pit_duration"]) if durations["pit_duration"] else 0
         }
         for driver, durations in driver_durations.items()
     }
 
-    return driver_tyre_age_avg
+    return driver_duration_pit_avg
+
