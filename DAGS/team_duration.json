@@ -1,0 +1,23 @@
+{
+    "44": {
+        "average_duration_sector_1": 0,
+        "average_duration_sector_2": 42.0745,
+        "average_duration_sector_3": 23.616,
+        "average_lap_duration": 87,
+        "team_name": "Red Bull Racing"
+    },
+    "1": {
+        "average_duration_sector_1": 0,
+        "average_duration_sector_2": 42.0745,
+        "average_duration_sector_3": 23.616,
+        "average_lap_duration": 25.8,
+        "team_name": "Red Bull Racing"
+    },
+    "4": {
+        "average_duration_sector_1": 0,
+        "average_duration_sector_2": 41.266,
+        "average_duration_sector_3": 23.616,
+        "average_lap_duration": 99,
+        "team_name": "McLaren"
+    }
+}
