@@ -1,10 +1,11 @@
 import json
 # Liste des informations des pilotes
-with open('drivers.json', 'r') as pos_file:
+with open('data/drivers.json', 'r') as pos_file:
     drivers_data = json.load(pos_file)
 
 
 # Données de lap times
+# Get This from the Cloud
 with open('avrg_durations.json', 'r') as pos_file:
     lap_times = json.load(pos_file)
 

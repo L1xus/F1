@@ -1,11 +1,12 @@
 import json
 
 
-with open('drivers.json', 'r') as pos_file:
+with open('data/drivers.json', 'r') as pos_file:
     drivers_data = json.load(pos_file)
 
 # Charger les données des temps moyens d'arrêt
-with open('avrg_pits.json', 'r') as pos_file:
+# Get this from the cloud
+with open('avg_pits.json', 'r') as pos_file:
     pits = json.load(pos_file)
 
 # Création d'un dictionnaire associant chaque driver_number à son team_name

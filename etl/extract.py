@@ -35,12 +35,6 @@ def extract_data():
         all_stints[session] = {}
         
         for driver in drivers_numbers:
-            # Fetch and store cars data
-            cars_url = f"https://api.openf1.org/v1/car_data?session_key={session}&driver_number={driver}"
-            cars_data = fetch_data(cars_url)
-            if cars_data:
-                all_cars[session][driver] = cars_data
-
             # Fetch and store laps data
             laps_url = f"https://api.openf1.org/v1/laps?session_key={session}&driver_number={driver}"
             laps_data = fetch_data(laps_url)
@@ -53,12 +47,6 @@ def extract_data():
             if pit_data:
                 all_pits[session][driver] = pit_data
             
-            # Fetch and store positions data
-            position_url = f"https://api.openf1.org/v1/positions?session_key={session}&driver_number={driver}"
-            position_data = fetch_data(position_url)
-            if position_data:
-                all_positions[session][driver] = position_data
-            
             # Fetch and store stints data
             stints_url = f"https://api.openf1.org/v1/stints?session_key={session}&driver_number={driver}"
             stints_data = fetch_data(stints_url)
@@ -66,8 +54,6 @@ def extract_data():
                 all_stints[session][driver] = stints_data
 
     # Save data to JSON files
-    save_to_json("cars.json", all_cars)
     save_to_json("laps.json", all_laps)
     save_to_json("pits.json", all_pits)
-    save_to_json("positions.json", all_positions)
     save_to_json("stints.json", all_stints)

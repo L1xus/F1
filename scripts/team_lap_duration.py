@@ -1,6 +1,7 @@
 import json
 
 # Données de lap times
+# Get this From the cloud
 with open('team_duration.json', 'r') as pos_file:
     lap_times = json.load(pos_file)
 

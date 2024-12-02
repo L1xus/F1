@@ -1,7 +1,7 @@
 import json
 
 # Exemple de données JSON
-with open('laplap.json', 'r') as pos_file:
+with open('data/laps.json', 'r') as pos_file:
     data = json.load(pos_file)
 
 # Dictionnaire pour stocker les données agrégées

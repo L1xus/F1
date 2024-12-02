@@ -1,7 +1,7 @@
 import json
 
 # Exemple de données JSON
-with open('stintstint.json', 'r') as pos_file:
+with open('data/stints.json', 'r') as pos_file:
     data = json.load(pos_file)
 
 
@@ -32,7 +32,7 @@ driver_tyre_age_avrg = {
 }
 
 
-with open("avrg_tyre_age.json", "w") as json_file:
+with open("avg_tyre_age.json", "w") as json_file:
     json.dump(driver_tyre_age_avrg, json_file, indent=4)
 
 print(f"Les moyennes des durées ont été enregistrées dans ")
