@@ -1,6 +1,5 @@
 import json
 
-# Exemple de données JSON
 with open('pitpit.json', 'r') as pos_file:
     data = json.load(pos_file)
 
