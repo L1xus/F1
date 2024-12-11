@@ -8,6 +8,7 @@ from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
 from etl.extract import extract_data
+from etl.transform import transform_data
 
 
 def on_failure_callback(**context):
@@ -25,7 +26,7 @@ with DAG(
     dag_id="f1_etl_v01",
     default_args=default_args,
     schedule_interval="0 15 * * 1",
-    start_date=datetime(2024, 11, 9),
+    start_date=datetime(2024, 12, 5),
     tags=["etl"],
     catchup=False,
 ) as dag:
@@ -34,5 +35,10 @@ with DAG(
         python_callable=extract_data,
         dag=dag,
     )
+    transform_task = PythonOperator(
+        task_id="transform",
+        python_callable=transform_data,
+        dag=dag
+    )
 
-    extract_task
+    extract_task >> transform_task

@@ -21,17 +21,13 @@ def extract_data():
     session_keys = get_last_season_races()
     drivers_numbers = get_drivers()
     
-    all_cars = {}
     all_laps = {}
     all_pits = {}
-    all_positions = {}
     all_stints = {}
 
     for session in session_keys:
-        all_cars[session] = {}
         all_laps[session] = {}
         all_pits[session] = {}
-        all_positions[session] = {}
         all_stints[session] = {}
         
         for driver in drivers_numbers:

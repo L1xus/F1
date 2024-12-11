@@ -6,7 +6,7 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 6.3; Win 64 ; x64) Apple WebKit /537.36 (KHTML , like Gecko) Chrome/80.0.3987.162 Safari/537.36"
 }
 
-output_dir = Path("./data")
+output_dir = Path("../data")
 output_dir.mkdir(exist_ok=True)
 
 def fetch_data(url):
