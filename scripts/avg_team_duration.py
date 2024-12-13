@@ -3,7 +3,7 @@ from collections import defaultdict
 
 def avg_team_duration(performances):
     # Charger les données
-    with open('drivers.json', 'r') as f:
+    with open('data/drivers.json', 'r') as f:
         pilotes = json.load(f)
 
     # Association des pilotes à leurs équipes
