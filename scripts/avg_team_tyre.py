@@ -2,7 +2,7 @@ import json
 
 def avg_team_tyre(stints):
     # Charger les données des pilotes
-    with open('data/drivers.json', 'r') as pos_file:
+    with open('F1/data/drivers.json', 'r') as pos_file:
         drivers_data = json.load(pos_file)
 
     # Création d'un dictionnaire associant chaque driver_number à son team_name

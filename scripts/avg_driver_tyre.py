@@ -2,7 +2,7 @@ import json
 
 def avg_driver_tyre():
     # Exemple de données JSON
-    with open('data/stints.json', 'r') as pos_file:
+    with open('F1/data/stints.json', 'r') as pos_file:
         data = json.load(pos_file)
 
 

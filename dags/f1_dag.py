@@ -23,7 +23,7 @@ default_args = {
 }
 
 with DAG(
-    dag_id="f1_etl_v01",
+    dag_id="f1_etl_v03",
     default_args=default_args,
     schedule_interval="0 15 * * 1",
     start_date=datetime(2024, 12, 5),

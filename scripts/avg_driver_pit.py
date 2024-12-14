@@ -1,7 +1,7 @@
 import json
 
 def avg_driver_pit():
-    with open('data/pits.json', 'r') as pos_file:
+    with open('F1/data/pits.json', 'r') as pos_file:
         data = json.load(pos_file)
 
     # Dictionnaire pour stocker les données agrégées

@@ -7,8 +7,6 @@ x-airflow-common: &airflow-common
     - airflow.env
   volumes:
     - .:/opt/airflow/F1
-    - ./dags:/opt/airflow/dags
-    - ./logs:/opt/airflow/logs
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     - postgres
