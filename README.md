@@ -6,4 +6,6 @@ Below are the links to the report and presentation slides (They're in French :))
 ## Architecture diagram
 ![Architecture](architecture.png)
 
+## Presentation slides and report
+https://drive.proton.me/urls/E2JNWSADW8#HDundBSuqkxP
 
