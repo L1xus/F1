@@ -16,7 +16,7 @@ def on_failure_callback(**context):
 
 
 default_args = {
-    "owner": "chiba",
+    "owner": "formula_1",
     "retries": 3,
     "retry_delay": timedelta(minutes=5),
     "on_failure_callback": on_failure_callback,
